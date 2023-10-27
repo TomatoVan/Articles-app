@@ -1,5 +1,6 @@
 {
-  "lang_switcher": "Change Language",
+  "test": "hello",
   "about_page": "About page",
-  "main_page": "Main page"
+  "main_page": "Main page",
+  "language": "Language"
 }
