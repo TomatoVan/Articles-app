@@ -33,6 +33,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'no-tabs': 'off',
         'max-len': ['error', { ignoreComments: true }],
     },
     globals: {

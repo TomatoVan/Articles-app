@@ -2,5 +2,6 @@
   "test": "Привет",
   "about_page": "О сайте",
   "main_page": "Главная страница",
-  "language": "Язык"
+  "language": "Язык",
+  "page_not_found": "Страница не найдена"
 }

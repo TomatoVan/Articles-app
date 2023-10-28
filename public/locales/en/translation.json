@@ -2,5 +2,6 @@
   "test": "hello",
   "about_page": "About page",
   "main_page": "Main page",
-  "language": "Language"
+  "language": "Language",
+  "page_not_found": "Page not found"
 }
