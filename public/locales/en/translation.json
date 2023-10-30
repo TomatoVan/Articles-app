@@ -3,5 +3,7 @@
   "about_page": "About page",
   "main_page": "Main page",
   "language": "Language",
-  "page_not_found": "Page not found"
+  "page_not_found": "Page not found",
+  "page_error": "An unexpected error occurred",
+  "update_page": "Update page"
 }
