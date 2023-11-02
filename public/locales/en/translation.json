@@ -1,9 +1,13 @@
 {
-  "test": "hello",
-  "about_page": "About page",
-  "main_page": "Main page",
-  "language": "Language",
-  "page_not_found": "Page not found",
-  "page_error": "An unexpected error occurred",
-  "update_page": "Update page"
+  "Тестовый пример": "Test example",
+  "Перевод": "Translate",
+  "Главная страница": "Main page",
+  "Язык": "English",
+  "новый перевод": "новый перевод",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Обновить страницу": "Reload page",
+  "throw error": "throw error",
+  "Главная": "Main",
+  "О сайте": "About us"
 }
