@@ -49,7 +49,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
+        // babelLoader,
         typescriptLoader,
         cssLoader,
     ];
