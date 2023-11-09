@@ -3,6 +3,7 @@ node_modules
 .loki/report.html
 .loki/report.json
 /yarn.lock
+.package-lock.json
 
 
 
