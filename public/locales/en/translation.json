@@ -13,5 +13,10 @@
   "Короткий язык": "En",
   "increment": "increment",
   "decrement": "decrement",
-  "login": "Login"
+  "login": "Login",
+  "auth_form": "Auth Form",
+  "auth_username": "Enter username",
+  "auth_password": "Enter password",
+  "login_error": "An incorrect username or password",
+  "exit": "Exit"
 }
