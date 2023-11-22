@@ -9,4 +9,9 @@ describe('getCounter', () => {
         };
         expect(getCounter(state as StateSchema)).toEqual({ value: 10 });
     });
+
+    test('should work with empty state', () => {
+        const state:DeepPartial<StateSchema> = {};
+        expect(getCounter(state as StateSchema)).toEqual(undefined);
+    });
 });

@@ -8,11 +8,6 @@ interface LoginByUsernameProps {
 	password: string
 }
 
-enum LoginErrors {
- INCORRECT_DATA = '',
-	SERVER_ERROR = ''
-}
-
 export const loginByUsername = createAsyncThunk<
   User,
   LoginByUsernameProps,
@@ -33,6 +28,6 @@ export const loginByUsername = createAsyncThunk<
         return response.data;
     } catch (error) {
         console.log(error);
-        return thunkAPI.rejectWithValue('login_error');
+        return thunkAPI.rejectWithValue('error');
     }
 });
