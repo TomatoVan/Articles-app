@@ -6,11 +6,14 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { ProfileSchema } from 'entities/Profile';
+import { AxiosInstance } from 'axios';
+import { To } from '@remix-run/router';
+import { NavigateOptions } from 'react-router/dist/lib/context';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
-	// Асинхронные редюсеры
+	// async reducers
 	loginForm?: LoginSchema;
 	profile?: ProfileSchema
 }
@@ -26,4 +29,14 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 	reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+	api: AxiosInstance,
+	navigate: (to: To, options?: NavigateOptions) => void
+}
+
+export interface ThunkConfig<T> {
+	rejectValue: T,
+	extra: ThunkExtraArg
 }
