@@ -29,7 +29,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.module.rules.push(buildCssLoader(true));
 
     config.plugins.push(new DefinePlugin({
-        __IS__DEV__: true,
+        __IS_DEV__: true,
     }));
 
     return config;

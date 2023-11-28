@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
-import { profileReducer } from 'entities/Profile';
+import { profileReducer } from '../../../entities/Profile';
 
 const reducers: ReducersList = {
     profile: profileReducer,
