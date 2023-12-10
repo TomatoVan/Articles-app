@@ -26,13 +26,7 @@
     }
   ],
   "profile": {
-    "first": "Тимур123",
-    "lastname": "Ульби11223",
-    "age": 22312,
     "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow321",
-    "username": "admi1",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "country": "Russia"
   }
 }

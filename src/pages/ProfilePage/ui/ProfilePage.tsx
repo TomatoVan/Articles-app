@@ -5,6 +5,8 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { useSelector } from 'react-redux';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileIsLoading } from '../../../entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../../entities/Profile/model/selectors/getProfileError/getProfileError';
@@ -80,6 +82,20 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         [dispatch],
     );
 
+    const onChangeCurrency = useCallback(
+        (currency?: Currency) => {
+            dispatch(profileActions.updateProfile({ currency }));
+        },
+        [dispatch],
+    );
+
+    const onChangeCountry = useCallback(
+        (country?: Country) => {
+            dispatch(profileActions.updateProfile({ country }));
+        },
+        [dispatch],
+    );
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
@@ -94,6 +110,8 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                     onChangeCity={onChangeCity}
                     onChangeAvatar={onChangeAvatar}
                     onChangeUsername={onChangeUsername}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
             </div>
