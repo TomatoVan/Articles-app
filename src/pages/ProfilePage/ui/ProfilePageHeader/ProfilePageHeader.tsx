@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
+import { getProfileReadonly, profileActions, updateProfileData } from '../../../../entities/Profile';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -23,7 +23,11 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
+        dispatch(profileActions.cancelEdit());
+    }, [dispatch]);
+
+    const onSave = useCallback(() => {
+        dispatch(updateProfileData());
     }, [dispatch]);
 
     return (
@@ -39,13 +43,23 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                         {t('Edit')}
                     </Button>
                 ) : (
-                    <Button
-                        className={cls.editBtn}
-                        theme={ButtonTheme.OUTLINE}
-                        onClick={onCancelEdit}
-                    >
-                        {t('Cancel')}
-                    </Button>
+                    <>
+                        <Button
+                            className={cls.editBtn}
+                            theme={ButtonTheme.OUTLINE_RED}
+                            onClick={onCancelEdit}
+                        >
+                            {t('Cancel')}
+                        </Button>
+                        <Button
+                            className={cls.saveBtn}
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onSave}
+                        >
+                            {t('Save')}
+                        </Button>
+                    </>
+
                 )}
 
         </div>
