@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Select } from 'shared/ui/Select/Select';
-import { Country, CountrySelect } from 'entities/Country';
+import { Country, CountrySelect } from '../../../Country';
 import { Currency, CurrencySelect } from '../../../Currency';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
