@@ -7,14 +7,20 @@ import {
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileIsLoading } from '../../../entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../../entities/Profile/model/selectors/getProfileError/getProfileError';
 import { useAppDispatch } from '../../../shared/lib/hook/useAppDispatch/useAppDispatch';
 import {
-    fetchProfileData, getProfileForm, getProfileReadonly, profileActions,
+    fetchProfileData,
+    getProfileForm,
+    getProfileReadonly,
+    getProfileValidateErrors,
+    profileActions,
     ProfileCard,
-    profileReducer,
+    profileReducer, ValidateProfileError,
 } from '../../../entities/Profile';
 
 const reducers: ReducersList = {
@@ -28,10 +34,22 @@ interface ProfilePageProps {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
 
+    const { t } = useTranslation('profile');
+
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Server error'),
+        [ValidateProfileError.NO_DATA]: t('No data'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Incorrect user data'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
+
+    };
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -53,7 +71,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     const onChangeAge = useCallback(
         (value?: string) => {
-            const regex = /^[0-9]+$/;
+            const regex = /^[0-9]*$/;
             if (regex.test(value || '')) {
                 dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
             }
@@ -100,6 +118,13 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslates[err]}
+                    />
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
