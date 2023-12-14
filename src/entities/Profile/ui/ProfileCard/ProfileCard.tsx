@@ -4,7 +4,6 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Select } from 'shared/ui/Select/Select';
 import { Country, CountrySelect } from '../../../Country';
 import { Currency, CurrencySelect } from '../../../Currency';
 import { Profile } from '../../model/types/profile';
@@ -15,15 +14,15 @@ interface ProfileCardProps {
   data?: Profile;
   isLoading?: boolean;
   error?: string;
-	readonly?: boolean;
-	onChangeFirstName?: (value?: string) => void
-	onChangeLastName?: (value?: string) => void
-	onChangeAge?: (value?: string) => void
-	onChangeCity?: (value?: string) => void
-	onChangeAvatar?: (value?: string) => void
-	onChangeUsername?: (value?: string) => void
-	onChangeCurrency?: (currency: Currency) => void
-	onChangeCountry?: (country: Country) => void
+  readonly?: boolean;
+  onChangeFirstName?: (value?: string) => void;
+  onChangeLastName?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
+  onChangeCurrency?: (currency: Currency) => void;
+  onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
