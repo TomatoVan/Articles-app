@@ -1,0 +1,8 @@
+import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+
+const ArticlesDetailsPage = (props: any) => {
+    const { t } = useTranslation();
+    return <div>{t('articles_details page')}</div>;
+};
+export default memo(ArticlesDetailsPage);
