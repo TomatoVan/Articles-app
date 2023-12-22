@@ -1,10 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
-import { memo, useEffect } from 'react';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
+import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -15,11 +12,11 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import {
-    getArticlesDetailsData,
-    getArticlesDetailsIsError,
-    getArticlesDetailsIsLoading,
-} from '../../model/selectors/articleDetails';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { getArticlesDetailsData, getArticlesDetailsIsError, getArticlesDetailsIsLoading } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
@@ -41,8 +38,41 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const isLoading = useSelector(getArticlesDetailsIsLoading);
     const error = useSelector(getArticlesDetailsIsError);
 
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return (
+                <ArticleCodeBlockComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        case ArticleBlockType.IMAGE:
+            return (
+                <ArticleImageBlockComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        case ArticleBlockType.TEXT:
+            return (
+                <ArticleTextBlockComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        default:
+            return null;
+        }
+    }, []);
+
     useEffect(() => {
-        dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
     }, [dispatch, id]);
 
     let content;
@@ -90,6 +120,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={article?.createdAt} />
                 </div>
+                {article?.blocks?.map(renderBlock)}
 
             </>
         );
