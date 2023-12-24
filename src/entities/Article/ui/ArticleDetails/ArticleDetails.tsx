@@ -17,7 +17,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { getArticlesDetailsData, getArticlesDetailsIsError, getArticlesDetailsIsLoading } from '../../model/selectors/articleDetails';
-import { fetchArticleById } from '../../services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 
