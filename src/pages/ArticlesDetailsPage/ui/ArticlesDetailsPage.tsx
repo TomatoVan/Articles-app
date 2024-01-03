@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { fetchCommentsByArticleId } from 'pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addCommentForm';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
     articleDetailsCommentsReducer,
@@ -40,10 +41,11 @@ const ArticlesDetailsPage = (props: any) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('comments')} />
+                <AddCommentForm />
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}
