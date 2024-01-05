@@ -11,12 +11,13 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { getUserAuthData } from 'entities/User';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileIsLoading } from '../../../entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../../entities/Profile/model/selectors/getProfileError/getProfileError';
 import { useAppDispatch } from '../../../shared/lib/hook/useAppDispatch/useAppDispatch';
 import {
-    fetchProfileData,
+    fetchProfileData, getProfileData,
     getProfileForm,
     getProfileReadonly,
     getProfileValidateErrors,
