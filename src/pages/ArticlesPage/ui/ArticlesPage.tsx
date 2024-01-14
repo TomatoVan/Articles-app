@@ -17,6 +17,9 @@ const article = {
     createdAt: '26.02.2022',
     type: [
         'IT',
+        'ECONOMICS',
+        'SCIENCE',
+        'POLITICS',
     ],
     blocks: [
         {
@@ -94,7 +97,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            <ArticleList articles={[article]} />
+            <ArticleList articles={
+                new Array(16).fill(0).map((item, index) => ({
+                    ...article,
+                    id: String(index),
+                }))
+            }
+            />
         </div>
     );
 };

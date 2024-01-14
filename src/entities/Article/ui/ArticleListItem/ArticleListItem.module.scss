@@ -1,3 +1,64 @@
-.ArticleListItem {
+.BIG {
 
+}
+
+.SMALL {
+    width: 230px;
+    transition: 0.2s;
+
+    .date {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.01);
+        cursor: pointer;
+        .date {
+            display: block;
+        }
+    }
+
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .infoWrapper {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    .types p {
+        width: 115px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .views {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .title p {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
