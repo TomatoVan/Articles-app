@@ -1,5 +1,6 @@
 {
   "": "",
+  "Back to list": "",
   "Cancel": "",
   "Choose country": "",
   "Choose currency": "",
@@ -16,6 +17,13 @@
   "No data": "",
   "PROFILE PAGE": "",
   "Profile": "",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Save": "",
   "Send": "",
   "Server error": "",
@@ -37,6 +45,7 @@
   "login": "",
   "login_error": "",
   "no comments": "",
+  "read more": "",
   "Введите username": "",
   "Введите пароль": "",
   "Войти": "",

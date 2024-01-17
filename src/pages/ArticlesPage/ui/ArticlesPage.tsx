@@ -2,10 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cls from './ArticlesPage.module.scss';
-import { Article, ArticleList } from '../../../entities/Article';
+import { Article, ArticleList, ArticleView } from '../../../entities/Article';
 
 interface ArticlesPageProps {
-	className?: string;
+  className?: string;
 }
 
 const article = {
@@ -15,6 +15,11 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'ulbi tv',
+        avatar: 'https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200',
+    },
     type: [
         'IT',
         'ECONOMICS',
@@ -97,12 +102,15 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            <ArticleList articles={
-                new Array(16).fill(0).map((item, index) => ({
-                    ...article,
-                    id: String(index),
-                }))
-            }
+            <ArticleList
+                isLoading
+                view={ArticleView.SMALL}
+                articles={
+                    new Array(16).fill(0).map((item, index) => ({
+                        ...article,
+                        id: String(index),
+                    }))
+                }
             />
         </div>
     );
