@@ -4,9 +4,9 @@ import {
     PayloadAction,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleView } from 'entities/Article';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { Article, ArticleView } from '../../../../entities/Article';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
