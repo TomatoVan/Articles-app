@@ -11,13 +11,13 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
-import { getUserAuthData } from 'entities/User';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileIsLoading } from '../../../entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../../entities/Profile/model/selectors/getProfileError/getProfileError';
 import { useAppDispatch } from '../../../shared/lib/hook/useAppDispatch/useAppDispatch';
 import {
-    fetchProfileData, getProfileData,
+    fetchProfileData,
     getProfileForm,
     getProfileReadonly,
     getProfileValidateErrors,
@@ -123,7 +123,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -146,7 +146,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                     onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
 
     );

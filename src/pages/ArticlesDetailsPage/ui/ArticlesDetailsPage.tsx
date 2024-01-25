@@ -13,6 +13,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { addCommentForArticle } from 'pages/ArticlesDetailsPage/model/services/addCommetForArticle/addCommetForArticle';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
     articleDetailsCommentsReducer,
@@ -50,12 +51,12 @@ const ArticlesDetailsPage = (props: any) => {
     });
 
     if (!id) {
-        return <div>{t('article_not_found')}</div>;
+        return <Page>{t('article_not_found')}</Page>;
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div>
+            <Page>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Back to list')}
                 </Button>
@@ -66,7 +67,7 @@ const ArticlesDetailsPage = (props: any) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
