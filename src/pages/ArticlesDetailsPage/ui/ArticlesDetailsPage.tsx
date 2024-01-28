@@ -13,7 +13,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { addCommentForArticle } from 'pages/ArticlesDetailsPage/model/services/addCommetForArticle/addCommetForArticle';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
     articleDetailsCommentsReducer,

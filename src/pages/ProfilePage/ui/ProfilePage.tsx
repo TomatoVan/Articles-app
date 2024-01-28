@@ -11,7 +11,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileIsLoading } from '../../../entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../../entities/Profile/model/selectors/getProfileError/getProfileError';
