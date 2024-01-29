@@ -7,21 +7,20 @@ import {
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'widgets/Page/Page';
-import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     getArticlesPageisLoading,
     getArticlesPageView,
-} from '../model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import {
-    articlesPageActions,
     articlesPageReducer,
     getArticles,
-} from '../model/slices/articlesPageSlice';
+} from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
-import { ArticleList, ArticleView } from '../../../entities/Article';
+import { ArticleList } from '../../../../entities/Article';
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,10 +37,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageisLoading);
     const view = useSelector(getArticlesPageView);
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
-
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
@@ -56,11 +51,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
+                    className={cls.list}
                 />
             </Page>
         </DynamicModuleLoader>
