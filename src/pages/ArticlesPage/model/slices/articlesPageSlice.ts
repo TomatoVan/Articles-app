@@ -6,7 +6,10 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrder } from 'shared/types';
-import { ArticleSortField } from '../../../../entities/Article/model/types/article';
+import {
+    ArticleSortField,
+    ArticleType,
+} from '../../../../entities/Article/model/types/article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { Article, ArticleView } from '../../../../entities/Article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -34,6 +37,7 @@ const articlesPageSlice = createSlice({
         sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -48,6 +52,9 @@ const articlesPageSlice = createSlice({
         },
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
         },
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;

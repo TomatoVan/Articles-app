@@ -39,7 +39,8 @@ export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlo
 export enum ArticleType {
 	IT = 'IT',
 	SCIENCE = 'SCIENCE',
-	ECONOMICS = 'ECONOMICS'
+	ECONOMICS = 'ECONOMICS',
+	ALL = 'ALL'
 }
 
 export enum ArticleView {
