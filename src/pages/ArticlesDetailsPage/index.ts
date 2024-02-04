@@ -5,5 +5,7 @@ export {
 };
 
 export { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
-export { articleDetailsCommentsReducer } from './model/slices/ArticleDetailsCommentsSlice';
-export { articleDetailsCommentsActions } from './model/slices/ArticleDetailsCommentsSlice';
+export { ArticleDetailsPageSchema } from './model/types';
+export { ArticleDetailsPageRecommendationsSchema } from './model/types/ArticleDetailsPageRecommendationsSchema';
+export { articleDetailsCommentsReducer, articleDetailsCommentsActions } from './model/slices/ArticleDetailsCommentsSlice';
+export { articleDetailsPageRecommendationsReducer, articleDetailsPageRecommendationsActions } from './model/slices/ArticleDetailsPageRecommendationsSlice';
