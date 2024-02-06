@@ -15,16 +15,17 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 
-import { articleDetailsPageReducer } from '../model/slices';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
-import { getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { getArticleComments } from '../model/slices/ArticleDetailsCommentsSlice';
-import { ArticleDetails, ArticleList } from '../../../entities/Article';
-import { Text, TextSize } from '../../../shared/ui/Text/Text';
-import { CommentList } from '../../../entities/Comment';
+import { ArticlesDetailsPageHeader } from 'pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { ArticleDetails, ArticleList } from '../../../../entities/Article';
+import { Text, TextSize } from '../../../../shared/ui/Text/Text';
+import { CommentList } from '../../../../entities/Comment';
 import cls from './ArticlesDetailsPage.module.scss';
-import { getArticleRecommendations } from '../../ArticlesDetailsPage/model/slices/ArticleDetailsPageRecommendationsSlice';
+import { getArticleRecommendations } from '../../model/slices/ArticleDetailsPageRecommendationsSlice';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -39,12 +40,6 @@ const ArticlesDetailsPage = (props: any) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -62,9 +57,7 @@ const ArticlesDetailsPage = (props: any) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Back to list')}
-                </Button>
+                <ArticlesDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
