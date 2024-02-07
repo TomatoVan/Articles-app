@@ -17,9 +17,9 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
 
     return (
         <div className={classNames(cls.ErrorPage, {}, [className])}>
-            <p>{t('Произошла непредвиденная ошибка')}</p>
+            <p>{t('An error has occurred')}</p>
             <Button onClick={reloadPage}>
-                {t('Обновить страницу')}
+                {t('Refresh page')}
             </Button>
         </div>
     );

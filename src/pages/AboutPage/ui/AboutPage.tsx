@@ -6,7 +6,7 @@ const AboutPage = memo((props: any) => {
 
     return (
         <div>
-            {t('О сайте')}
+            {t('About website')}
         </div>
     );
 });
