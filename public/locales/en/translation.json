@@ -18,5 +18,6 @@
   "auth_username": "Enter username",
   "auth_password": "Enter password",
   "login_error": "An incorrect username or password",
-  "exit": "Exit"
+  "exit": "Exit",
+  "main_page": "Main page"
 }
