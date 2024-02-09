@@ -5,13 +5,12 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
-import { getCanEditArticle } from 'pages/ArticlesDetailsPage/model/selectors/article';
-import { getUserAuthData } from '../../../../entities/User';
+import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticlesDetailsData } from '../../../../entities/Article';
 import cls from './ArticlesDetailsPageHeader.module.scss';
 
 interface ArticlesDetailsPageHeaderProps {
-	className?: string;
+  className?: string;
 }
 
 export const ArticlesDetailsPageHeader = memo((props: ArticlesDetailsPageHeaderProps) => {

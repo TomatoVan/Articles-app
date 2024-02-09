@@ -35,7 +35,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
 
     if (!isLoading && !articles.length) {
-        return <Text size={TextSize.L} title={t('Articles not found')} />;
+        return <Text size={TextSize.L} title="Articles not found" />;
     }
 
     const isBig = view === ArticleView.BIG;
