@@ -1,6 +1,7 @@
 import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DropDownDirection } from 'shared/types/ui';
 import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 import { HStack } from '../Stack';
@@ -10,8 +11,6 @@ export interface ListBoxItems {
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropDownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
 	items: ListBoxItems[];
@@ -25,8 +24,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropDownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop,
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight,
 };
 
 export const ListBox = memo((props:ListBoxProps) => {
@@ -37,7 +38,7 @@ export const ListBox = memo((props:ListBoxProps) => {
         onChange,
         defaultValue,
         readonly,
-        direction = 'bottom',
+        direction = 'bottom right',
         label,
     } = props;
 
@@ -71,7 +72,7 @@ export const ListBox = memo((props:ListBoxProps) => {
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(cls.ArticleTextBlockComponent, { [cls.active]: active, [cls.disabled]: item.disabled }, [cls.item])}
+                                    className={classNames(cls.ArticleTextBlockComponent, { [cls.active]: active, [cls.disabled]: item.disabled })}
                                 >
                                     {item.content}
                                 </li>

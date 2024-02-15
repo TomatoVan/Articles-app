@@ -11,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [(story) => <div style={{ padding: 150 }}>{story()}</div>],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
@@ -38,10 +39,34 @@ ReadOnly.args = {
     readonly: true,
 };
 
-export const TopDirection = Template.bind({});
-TopDirection.args = {
+export const TopRightDirection = Template.bind({});
+TopRightDirection.args = {
     items,
     value: 'item1',
     onChange: action('onChange'),
-    direction: 'top',
+    direction: 'top right',
+};
+
+export const TopLeftDirection = Template.bind({});
+TopLeftDirection.args = {
+    items,
+    value: 'item1',
+    onChange: action('onChange'),
+    direction: 'top left',
+};
+
+export const BottomLeftDirection = Template.bind({});
+BottomLeftDirection.args = {
+    items,
+    value: 'item1',
+    onChange: action('onChange'),
+    direction: 'bottom left',
+};
+
+export const BottomRightDirection = Template.bind({});
+BottomRightDirection.args = {
+    items,
+    value: 'item1',
+    onChange: action('onChange'),
+    direction: 'bottom right',
 };
