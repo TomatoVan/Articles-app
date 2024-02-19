@@ -14,6 +14,7 @@
   "Enter ": "",
   "Enter comment text": "",
   "Enter cooment text": "",
+  "Error while loading articles": "",
   "Error with getting article data": "",
   "Error with getting profile data": "",
   "Exit": "",
@@ -61,10 +62,13 @@
   "login": "",
   "login_error": "",
   "name": "",
+  "no articles found": "",
   "no comments": "",
+  "no profile found": "",
   "read more": "",
   "views": "",
   "Главная страница": "",
   "Обновить страницу": "",
-  "Произошла непредвиденная ошибка": ""
+  "Произошла непредвиденная ошибка": "",
+  "Статьи не найдены": ""
 }

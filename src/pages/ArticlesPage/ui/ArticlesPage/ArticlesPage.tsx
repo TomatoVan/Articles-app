@@ -4,24 +4,16 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
-import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { Page } from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
+import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-    getArticlesPageisLoading,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
-import {
-    articlesPageReducer,
-    getArticles,
-} from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
-import { ArticleList } from '../../../../entities/Article';
 
 interface ArticlesPageProps {
   className?: string;
@@ -33,10 +25,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
-
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageisLoading);
-    const view = useSelector(getArticlesPageView);
 
     const [searchParams] = useSearchParams();
 
@@ -55,12 +43,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >
                 <ArticlesPageFilters />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                    className={cls.list}
-                />
+                <ArticleInfiniteList />
             </Page>
         </DynamicModuleLoader>
     );

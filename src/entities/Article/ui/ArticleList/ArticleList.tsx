@@ -1,49 +1,44 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
+import { Article, ArticleView } from '../../model/types/article';
 
 interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
-  view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  view?: ArticleView;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.card} view={view} key={index} />
+        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
-        view = ArticleView.SMALL,
         articles,
+        view = ArticleView.SMALL,
         isLoading,
         target,
     } = props;
-
     const { t } = useTranslation();
-
-    if (!isLoading && !articles.length) {
-        return <Text size={TextSize.L} title="Articles not found" />;
-    }
 
     const isBig = view === ArticleView.BIG;
 
-    const itemsPerRow = isBig ? 1 : 4;
+    const itemsPerRow = isBig ? 1 : 3;
     const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
 
-    const rowRenderer = ({
+    const rowRender = ({
         index, isScrolling, key, style,
     }: ListRowProps) => {
         const items = [];
@@ -56,7 +51,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     article={articles[i]}
                     view={view}
                     target={target}
-                    key={articles[i]?.id}
+                    key={`str${i}`}
                     className={cls.card}
                 />,
             );
@@ -73,12 +68,25 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     };
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title={t('no articles found')} />
+            </div>
+        );
+    }
+
     return (
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
             {({
-                height, width, registerChild, isScrolling, scrollTop, onChildScroll,
+                height,
+                width,
+                registerChild,
+                onChildScroll,
+                isScrolling,
+                scrollTop,
             }) => (
                 <div
                     ref={registerChild}
@@ -86,10 +94,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 >
                     <List
                         height={height ?? 700}
+                        rowCount={rowCount}
+                        rowHeight={isBig ? 500 : 330}
+                        rowRenderer={rowRender}
                         width={width ? width - 80 : 700}
-                        rowCount={articles.length}
-                        rowHeight={isBig ? 700 : 330}
-                        rowRenderer={rowRenderer}
                         autoHeight
                         onScroll={onChildScroll}
                         isScrolling={isScrolling}
@@ -97,15 +105,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     />
                     {isLoading && getSkeletons(view)}
                 </div>
-
             )}
         </WindowScroller>
     );
-    // without virtualize
-    // <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-    //     {articles.length > 0
-    //         ? articles.map(renderArticle)
-    //         : null}
-    //     {isLoading && getSkeletons(view)}
-    // </div>
 });

@@ -4,8 +4,8 @@ import { loginReducer } from 'features/AuthByUsername';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/ArticlesDetailsPage/model/slices';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from '../../../../entities/Article';
-import { profileReducer } from '../../../../entities/Profile';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

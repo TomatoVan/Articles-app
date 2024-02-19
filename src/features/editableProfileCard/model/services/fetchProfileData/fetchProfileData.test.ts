@@ -1,4 +1,3 @@
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
@@ -11,7 +10,8 @@ const data = {
     age: 20,
     country: Country.Armenia,
     currency: Currency.EUR,
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar:
+    'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     city: 'yaroslavl',
 };
 
