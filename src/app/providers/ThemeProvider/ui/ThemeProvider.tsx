@@ -10,7 +10,7 @@ interface ThemeProviderProps {
 	children?: ReactNode
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+const ThemeProvider = (props:ThemeProviderProps) => {
     const { initialTheme, children } = props;
 
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);

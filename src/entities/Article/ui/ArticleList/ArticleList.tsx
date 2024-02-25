@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { HTMLAttributeAnchorTarget, LegacyRef, memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
@@ -91,7 +91,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 scrollTop,
             }) => (
                 <div
-                    ref={registerChild}
+                    ref={registerChild as LegacyRef<HTMLDivElement>}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {virtualized ? (
