@@ -12,9 +12,9 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileError } from '../../model/consts/consts';
 import { ProfileCard } from '../../../../entities/Profile';
 import { EditableProfileCardHeader } from '../../ui/EditableProfileCardHeader/EditableProfileCardHeader';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

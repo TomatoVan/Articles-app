@@ -6,12 +6,10 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrder } from 'shared/types';
-import {
-    ArticleSortField,
-    ArticleType,
-} from '../../../../entities/Article/model/types/article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { Article, ArticleView } from '../../../../entities/Article';
+import {
+    Article, ArticleSortField, ArticleType, ArticleView,
+} from '../../../../entities/Article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({

@@ -9,12 +9,11 @@ import { Card } from 'shared/ui/Card/Card';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hook/useDebounce/useDebounce';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     ArticleSortField,
-    ArticleSortSelector,
+    ArticleSortSelector, ArticleType,
     ArticleView,
 } from '../../../../entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
