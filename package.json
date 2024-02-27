@@ -54,6 +54,7 @@
     "@types/webpack": "^5.28.0",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
+    "@types/circular-dependency-plugin": "^5.0.5",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
@@ -92,7 +93,8 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
     "jest-html-reporters": "^3.0.10",
-    "storybook-addon-mock": "^2.4.1"
+    "storybook-addon-mock": "^2.4.1",
+    "circular-dependency-plugin": "^5.2.2"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
