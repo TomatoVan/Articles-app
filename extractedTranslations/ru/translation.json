@@ -1,0 +1,53 @@
+{
+  "Admin panel": "Admin panel",
+  "All": "All",
+  "Articles app": "Articles app",
+  "Back to list": "Back to list",
+  "Cancel": "Cancel",
+  "Choose country": "Choose country",
+  "Choose currency": "Choose currency",
+  "Comments": "Comments",
+  "Create new article": "Create new article",
+  "Economics": "Economics",
+  "Edit": "Edit",
+  "Enter comment text": "Enter comment text",
+  "Error while loading articles": "Error while loading articles",
+  "Error with getting article data": "Error with getting article data",
+  "Exit": "Exit",
+  "IT": "IT",
+  "Profile": "Profile",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "Recommend": "Recommend",
+  "Save": "Save",
+  "Science": "Science",
+  "Search": "Search",
+  "Send": "Send",
+  "Sort by": "Sort by",
+  "Try to reload page": "Try to reload page",
+  "You don`t have access to this page!": "You don`t have access to this page!",
+  "ascending": "ascending",
+  "auth_form": "auth_form",
+  "auth_password": "auth_password",
+  "auth_username": "auth_username",
+  "by": "by",
+  "creation date": "creation date",
+  "decrement": "decrement",
+  "descending": "descending",
+  "increment": "increment",
+  "login": "login",
+  "login_error": "login_error",
+  "name": "name",
+  "no articles found": "no articles found",
+  "no comments": "no comments",
+  "throw error": "throw error",
+  "views": "views",
+  "Главная страница": "Главная страница",
+  "Обновить страницу": "Обновить страницу",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка"
+}
