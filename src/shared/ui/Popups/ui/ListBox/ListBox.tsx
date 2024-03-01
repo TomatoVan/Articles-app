@@ -2,9 +2,11 @@ import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
-import { Button } from '../Button/Button';
+import popupCls from '../../styles/popup.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
+import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
-import { HStack } from '../Stack';
+import { HStack } from '../../../Stack';
 
 export interface ListBoxItems {
   value: string;
@@ -22,13 +24,6 @@ interface ListBoxProps {
 	direction?: DropDownDirection;
 	label?: string;
 }
-
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
 
 export const ListBox = memo((props:ListBoxProps) => {
     const {
@@ -50,13 +45,13 @@ export const ListBox = memo((props:ListBoxProps) => {
             <HListBox
                 disabled={readonly}
                 as="div"
-                className={classNames(cls.ListBox, { [cls.disabled]: readonly }, [className])}
+                className={classNames(cls.ListBox, { [popupCls.disabled]: readonly }, [className, popupCls.popup])}
                 value={value}
                 onChange={onChange}
             >
 
                 <HListBox.Button
-                    className={cls.trigger}
+                    className={popupCls.trigger}
                 >
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
@@ -72,7 +67,7 @@ export const ListBox = memo((props:ListBoxProps) => {
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(cls.ArticleTextBlockComponent, { [cls.active]: active, [cls.disabled]: item.disabled })}
+                                    className={classNames(cls.ArticleTextBlockComponent, { [popupCls.active]: active, [popupCls.disabled]: item.disabled })}
                                 >
                                     {item.content}
                                 </li>

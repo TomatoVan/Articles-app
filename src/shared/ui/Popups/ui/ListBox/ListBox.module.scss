@@ -1,0 +1,24 @@
+.options {
+    background: var(--listbox-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+    min-width: 100%;
+    cursor: pointer;
+    color: var(--inverted-primary-color);
+}
+
+.item {
+    padding: 10px 20px;
+}
+
+.optionsTop {
+    bottom: 100%;
+}
+
+.ArticleTextBlockComponent {
+    color: var(--primary-color);
+    padding: 10px 20px;
+    width: 100%;
+}

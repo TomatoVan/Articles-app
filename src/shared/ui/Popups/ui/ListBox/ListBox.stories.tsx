@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { action, actions, ActionDisplay } from '@storybook/addon-actions';
-import { Country } from '../../../entities/Country';
+import { Country } from '../../../../../entities/Country';
 import { ListBox } from './ListBox';
 
 export default {
