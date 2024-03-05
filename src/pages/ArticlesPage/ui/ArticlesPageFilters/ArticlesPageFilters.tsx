@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { Card } from 'shared/ui/Card/Card';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hook/useDebounce/useDebounce';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
+import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card/Card';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hook/useDebounce/useDebounce';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     ArticleSortField,

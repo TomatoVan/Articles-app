@@ -1,6 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction,
     EnhancedStore,
@@ -9,12 +6,15 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
-import { AddCommentFormSchema } from 'features/addCommentForm';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollRestorationSchema } from 'features/scrollRestoration/model/types/scrollRestorationSchema';
-import { ArticleDetailsPageSchema } from 'pages/ArticlesDetailsPage/model/types';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/editableProfileCard';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { AddCommentFormSchema } from '@/features/addCommentForm';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ScrollRestorationSchema } from '@/features/scrollRestoration/model/types/scrollRestorationSchema';
+import { ArticleDetailsPageSchema } from '@/pages/ArticlesDetailsPage/model/types';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/editableProfileCard';
 import { ArticleDetailsSchema } from '../../../../entities/Article';
 
 export interface StateSchema {

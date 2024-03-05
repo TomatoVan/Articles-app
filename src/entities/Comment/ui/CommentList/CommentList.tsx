@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
 import { Text } from '../../../../shared/ui/Text/Text';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../types/comment';
