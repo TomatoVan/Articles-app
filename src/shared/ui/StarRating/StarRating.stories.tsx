@@ -1,0 +1,26 @@
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { StarRating } from './StarRating';
+
+export default {
+    title: 'shared/StarRating',
+    component: StarRating,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof StarRating>;
+
+const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+    onSelect: (starCount: number) => {
+        console.log(`Selected stars: ${starCount}`);
+    },
+};
+
+export const WithSelectedStars = Template.bind({});
+WithSelectedStars.args = {
+    selectedStars: 3,
+};

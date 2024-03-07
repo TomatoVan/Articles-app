@@ -8,7 +8,7 @@ import cls from './CommentCard.module.scss';
 import { Comment } from '../../types/comment';
 import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
 import { Text } from '../../../../shared/ui/Text/Text';
-import { Skeleton } from '../../../../shared/ui/Skeleton/ui/Skeleton';
+import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
 
 interface CommentCardProps {
   className?: string;

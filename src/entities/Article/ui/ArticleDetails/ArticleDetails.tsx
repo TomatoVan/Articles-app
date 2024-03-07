@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch'
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
