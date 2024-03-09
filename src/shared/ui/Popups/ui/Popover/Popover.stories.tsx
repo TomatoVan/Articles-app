@@ -15,6 +15,6 @@ const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />
 
 export const Normal = Template.bind({});
 Normal.args = {
-    trigger: <button>Click me</button>,
+    trigger: <button type="button">Click me</button>,
     children: <div>Popover content</div>,
 };

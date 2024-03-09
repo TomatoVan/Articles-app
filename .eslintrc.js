@@ -52,7 +52,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'react/jsx-no-useless-fragment': 'off',
-        'paths-fixes/path-checker': 'error',
+        'paths-fixes/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
