@@ -4,7 +4,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
-import { Page } from '@/widgets/Page/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
@@ -13,6 +12,7 @@ import { ArticlesDetailsPageHeader } from '../../ui/ArticlesDetailsPageHeader/Ar
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetails } from '../../../../entities/Article';
 import { ArticleRating } from '@/features/articleRating';
+import { Page } from '@/widgets/Page';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,

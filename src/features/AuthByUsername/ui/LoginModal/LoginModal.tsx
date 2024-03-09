@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Modal } from '@/shared/ui/Modal/Modal';
-import { PageLoader } from '@/shared/ui/PageLoader/PageLoader';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
+import { PageLoader } from '@/widgets/PageLoader';
 
 interface LoginModalProps {
   className?: string;

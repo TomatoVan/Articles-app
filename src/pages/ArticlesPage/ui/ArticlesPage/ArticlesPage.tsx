@@ -7,13 +7,13 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { useInitialEffect } from '@/shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/Page/Page';
 import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
+import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
   className?: string;

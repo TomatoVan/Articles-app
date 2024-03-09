@@ -6,6 +6,6 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 
 export type { Article } from './model/types/article';
-export { ArticleSortField } from './model/consts/consts';
-export { ArticleType } from './model/consts/consts';
-export { ArticleView } from './model/consts/consts';
+export {
+    ArticleType, ArticleView, ArticleBlockType, ArticleSortField,
+} from './model/consts/consts';
