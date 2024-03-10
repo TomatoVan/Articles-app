@@ -53,7 +53,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'paths-fixes/path-checker': ['error', { alias: '@' }],
-        'paths-fixes/public-api-imports': ['error', { alias: '@' }],
+        'paths-fixes/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
