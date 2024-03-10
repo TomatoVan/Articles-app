@@ -3,11 +3,11 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticlesDetailsData } from '../../../../entities/Article';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticlesDetailsPageHeaderProps {
   className?: string;
