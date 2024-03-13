@@ -53,6 +53,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'paths-fixes/path-checker': ['error', { alias: '@' }],
+        'paths-fixes/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'paths-fixes/public-api-imports': [
             'error',
             {
