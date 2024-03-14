@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -8,14 +8,13 @@ import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hook/useDebounce/useDebounce';
-import { TabItem } from '@/shared/ui/Tabs';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     ArticleSortField,
     ArticleSortSelector, ArticleType,
     ArticleView,
-} from '../../../../entities/Article';
+} from '@/entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
     getArticlesPageOrder,

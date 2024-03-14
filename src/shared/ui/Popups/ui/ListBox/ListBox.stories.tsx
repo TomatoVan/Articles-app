@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { action, actions, ActionDisplay } from '@storybook/addon-actions';
-import { Country } from '../../../../../entities/Country';
+import { action } from '@storybook/addon-actions';
+// eslint-disable-next-line paths-fixes/layer-imports
+import { Country } from '@/entities/Country';
 import { ListBox } from './ListBox';
 
 export default {
