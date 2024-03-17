@@ -11,7 +11,7 @@ import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropDown } from '@/features/avatarDropdown';
 import { getUserAuthData } from '../../../entities/User';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouterArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;
@@ -40,7 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
-                    to={RoutePath.article_create}
+                    to={getRouterArticleCreate()}
                     className={cls.createBtn}
                 >
                     {t('Create new article')}

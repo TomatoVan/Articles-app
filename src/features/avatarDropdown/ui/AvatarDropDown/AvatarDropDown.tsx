@@ -10,7 +10,7 @@ import {
     isUserManager,
     userActions,
 } from '../../../../entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouterAdminPanel, getRouterProfile } from '@/shared/const/router';
 
 export const AvatarDropDown = memo(() => {
     const { t } = useTranslation();
@@ -35,13 +35,17 @@ export const AvatarDropDown = memo(() => {
         <Dropdown
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Admin panel'),
-                    href: RoutePath.admin_panel,
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                        {
+                            content: t('Admin panel'),
+                            href: getRouterAdminPanel(),
+                        },
+                    ]
+                    : []),
                 {
                     content: t('Profile'),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouterProfile(authData.id),
                 },
                 {
                     content: t('Exit'),
