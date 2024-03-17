@@ -12,7 +12,7 @@ import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     ArticleSortField,
-    ArticleSortSelector, ArticleType,
+    ArticleType,
     ArticleView,
 } from '@/entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
@@ -24,6 +24,7 @@ import {
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPageFilters.module.scss';
+import { ArticleSortSelector } from '@/features/ArtilcleSortSelector';
 
 interface ArticlesPageFiltersProps {
   className?: string;
