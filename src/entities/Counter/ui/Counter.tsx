@@ -18,6 +18,11 @@ export const Counter = () => {
         dispatch(counterActions.decrement());
     };
 
+    // work with data without dispatch \ select
+
+    // const counterValue = useCounterValue();
+    // const { decrement, increment, add } = useCounterActions();
+
     return (
         <div>
             <h1 data-testid="value-title">{counterValue}</h1>

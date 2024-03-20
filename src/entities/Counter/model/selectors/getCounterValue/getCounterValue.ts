@@ -7,3 +7,9 @@ export const getCounterValue = createSelector(
     getCounter,
     (counter: CounterSchema) => counter.value,
 );
+
+// using custom select
+
+// export const [useCounterValue, getCounterValue] = buildSelector(
+//     (state) => state.counter.value,
+// );
