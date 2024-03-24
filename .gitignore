@@ -3,9 +3,9 @@ node_modules
 .loki/report.html
 .loki/report.json
 /yarn.lock
-.package-lock.json
-/package-lock.json
-/.package-lock.json
+#.package-lock.json
+#/package-lock.json
+#/.package-lock.json
 /storybook-static/project.json
 /storybook-static/favicon.ico
 /reports
