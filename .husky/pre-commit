@@ -8,3 +8,5 @@
 #npm run storybook:build
 #npm run test:ui
 
+#for linting only staged files
+#npx lint-staged а
