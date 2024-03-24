@@ -8,7 +8,7 @@ import { Comment } from '../../model/types/comment';
 import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
 import { Text } from '../../../../shared/ui/Text/Text';
 import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
-import { getRouterProfile } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;
@@ -38,7 +38,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
 
     return (
         <VStack max gap="8" className={classNames(cls.CommentCard, {}, [className])}>
-            <AppLink to={getRouterProfile(comment.user.id)} className={cls.header}>
+            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
                 {comment.user.avatar && <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} />}
                 <Text className={cls.username} title={comment.user.username} />
             </AppLink>

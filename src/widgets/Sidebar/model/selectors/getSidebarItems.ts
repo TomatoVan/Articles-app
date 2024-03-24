@@ -6,21 +6,21 @@ import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
 import { getUserAuthData } from '../../../../entities/User';
 import { SidebarItemType } from '../types/sidebar';
 import {
-    getRouterAbout,
-    getRouterArticles,
-    getRouterMain,
-    getRouterProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemsList: SidebarItemType[] = [
         {
-            path: getRouterMain(),
+            path: getRouteMain(),
             Icon: MainIcon,
             text: 'Main page',
         },
         {
-            path: getRouterAbout(),
+            path: getRouteAbout(),
             Icon: AboutIcon,
             text: 'About site',
         },
@@ -29,13 +29,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     if (userData) {
         sidebarItemsList.push(
             {
-                path: getRouterProfile(userData.id),
+                path: getRouteProfile(userData.id),
                 Icon: ProfileIcon,
                 text: 'Profile',
                 authOnly: true,
             },
             {
-                path: getRouterArticles(),
+                path: getRouteArticles(),
                 Icon: ArticleIcon,
                 text: 'Articles',
                 authOnly: true,
