@@ -12,7 +12,6 @@ import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFi
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
-import cls from './ArticlesPage.module.scss';
 import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
@@ -40,7 +39,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
-                className={classNames(cls.ArticlesPage, {}, [className])}
+                className={classNames('', {}, [className])}
             >
                 <ArticlesPageFilters />
                 <ArticleInfiniteList />
