@@ -8,7 +8,7 @@ node_modules
 #/.package-lock.json
 /storybook-static/project.json
 /storybook-static/favicon.ico
-/reports
+/reports/unit
 /reports/unit/report.html
 
 
