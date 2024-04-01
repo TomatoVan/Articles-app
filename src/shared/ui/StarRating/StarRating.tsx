@@ -48,7 +48,11 @@ export const StarRating = memo((props: StarRatingProps) => {
         <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
                 <Icon
-                    className={classNames(cls.StarIcon, { [cls.selected]: isSelected }, [currentStarsCount >= starNumber ? cls.hovered : cls.normal])}
+                    className={classNames(
+                        cls.StarIcon,
+                        { [cls.selected]: isSelected },
+                        [currentStarsCount >= starNumber ? cls.hovered : cls.normal],
+                    )}
                     Svg={StarIcon}
                     key={starNumber}
                     width={size}
@@ -56,6 +60,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onMouseLeave={onLeave}
                     onMouseEnter={() => onHover(starNumber)}
                     onClick={() => onClick(starNumber)}
+                    data-testid={`StarRating.${starNumber}`}
+                    data-selected={currentStarsCount >= starNumber}
 
                 />
             ))}
