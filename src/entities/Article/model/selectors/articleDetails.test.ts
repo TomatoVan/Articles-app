@@ -28,11 +28,15 @@ describe('articleDetails.test', () => {
                 error: 'error',
             },
         };
-        expect(getArticlesDetailsIsError(state as StateSchema)).toEqual('error');
+        expect(getArticlesDetailsIsError(state as StateSchema)).toEqual(
+            'error',
+        );
     });
     test('should work with empty state error', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticlesDetailsIsError(state as StateSchema)).toEqual(undefined);
+        expect(getArticlesDetailsIsError(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
@@ -44,6 +48,8 @@ describe('articleDetails.test', () => {
     });
     test('should work with empty state isLoading', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticlesDetailsIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getArticlesDetailsIsLoading(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

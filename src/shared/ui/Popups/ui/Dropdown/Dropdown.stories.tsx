@@ -12,7 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -20,10 +22,14 @@ Basic.args = {
         { content: 'Option 1', onClick: () => {} },
         { content: 'Option 2', onClick: () => {} },
         {
-            content: 'Option 3', onClick: () => {}, disabled: true,
+            content: 'Option 3',
+            onClick: () => {},
+            disabled: true,
         },
         {
-            content: 'Option 4', onClick: () => {}, href: 'https://google.com',
+            content: 'Option 4',
+            onClick: () => {},
+            href: 'https://google.com',
         },
     ],
     trigger: <Button>Dropdown</Button>,

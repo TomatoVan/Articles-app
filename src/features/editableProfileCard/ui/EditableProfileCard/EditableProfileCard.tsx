@@ -24,8 +24,8 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 
 interface EditableProfileCardProps {
-  className?: string;
-  id?: string;
+    className?: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -50,7 +50,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Incorrect user data'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
-
     };
 
     useInitialEffect(() => {
@@ -77,7 +76,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         (value?: string) => {
             const regex = /^[0-9]*$/;
             if (regex.test(value || '')) {
-                dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+                dispatch(
+                    profileActions.updateProfile({ age: Number(value || 0) }),
+                );
             }
         },
         [dispatch],
@@ -122,14 +123,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <VStack max gap="8" className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                {validateErrors?.length && validateErrors.map((err) => (
-                    <Text
-                        key={err}
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[err]}
-                        data-testid="EditableProfileCard.Error"
-                    />
-                ))}
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            key={err}
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[err]}
+                            data-testid="EditableProfileCard.Error"
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
@@ -146,6 +148,5 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 />
             </VStack>
         </DynamicModuleLoader>
-
     );
 });

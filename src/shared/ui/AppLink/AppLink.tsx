@@ -4,15 +4,15 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  RED = 'red',
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    RED = 'red',
 }
 
 interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme;
-		children?: ReactNode
+    children?: ReactNode;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -27,7 +27,9 @@ export const AppLink = memo((props: AppLinkProps) => {
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
+            className={classNames(cls.AppLink, { [cls[theme]]: true }, [
+                className,
+            ])}
             {...otherProps}
         >
             {children}

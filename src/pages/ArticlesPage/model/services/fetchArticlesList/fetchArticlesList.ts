@@ -12,13 +12,13 @@ import {
 } from '../../selectors/articlesPageSelectors';
 
 interface fetchArticlesListProps {
-  replace?: boolean;
+    replace?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
-  Article[],
-	fetchArticlesListProps,
-  ThunkConfig<string>
+    Article[],
+    fetchArticlesListProps,
+    ThunkConfig<string>
 >('articlesPage/fetchArticlesList', async (props, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI;
 
@@ -31,7 +31,10 @@ export const fetchArticlesList = createAsyncThunk<
 
     try {
         addQueryParams({
-            sort, order, search, type,
+            sort,
+            order,
+            search,
+            type,
         });
 
         const response = await extra.api.get<Article[]>('/articles', {
@@ -43,7 +46,6 @@ export const fetchArticlesList = createAsyncThunk<
                 _order: order,
                 q: search,
                 type: type === ArticleType.ALL ? undefined : type,
-
             },
         });
 

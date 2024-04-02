@@ -7,33 +7,33 @@ import { ArticleList } from '../../../../entities/Article';
 import { useArticleRecommendaionsList } from '../../api/ArticleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
-  className?: string;
+    className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const { isLoading, error, data: articles } = useArticleRecommendaionsList(3);
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
+        const {
+            isLoading,
+            error,
+            data: articles,
+        } = useArticleRecommendaionsList(3);
 
-    if (isLoading || error || !articles) {
-        return null;
-    }
+        if (isLoading || error || !articles) {
+            return null;
+        }
 
-    return (
-        <VStack
-            data-testid="ArticleRecommendationsList"
-            gap="16"
-            max
-            className={classNames('', {}, [className])}
-        >
-            <Text
-                size={TextSize.L}
-                title={t('Recommend')}
-            />
-            <ArticleList
-                articles={articles}
-                target="_blank"
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack
+                data-testid="ArticleRecommendationsList"
+                gap="16"
+                max
+                className={classNames('', {}, [className])}
+            >
+                <Text size={TextSize.L} title={t('Recommend')} />
+                <ArticleList articles={articles} target="_blank" />
+            </VStack>
+        );
+    },
+);

@@ -4,7 +4,6 @@ describe('shared/url/addQueryParams', () => {
     test('test with one param', () => {
         const params = getQueryParams({
             test: 'value',
-
         });
         expect(params).toBe('?test=value');
     });
@@ -12,7 +11,6 @@ describe('shared/url/addQueryParams', () => {
         const params = getQueryParams({
             test: 'value',
             second: '2',
-
         });
         expect(params).toBe('?test=value&second=2');
     });
@@ -20,7 +18,6 @@ describe('shared/url/addQueryParams', () => {
         const params = getQueryParams({
             test: 'value',
             second: undefined,
-
         });
         expect(params).toBe('?test=value');
     });

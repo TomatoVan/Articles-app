@@ -32,5 +32,4 @@ Normal.args = {
     ],
     value: 'value 2',
     onTabClick: action('onTabClick'),
-
 };

@@ -7,19 +7,14 @@ import popupCls from '../../styles/popup.module.scss';
 import cls from './Popover.module.scss';
 
 interface PopoverProps {
-  className?: string;
-  direction?: DropDownDirection;
-  trigger: ReactNode;
-	children: ReactNode;
+    className?: string;
+    direction?: DropDownDirection;
+    trigger: ReactNode;
+    children: ReactNode;
 }
 
 export const Popover = memo((props: PopoverProps) => {
-    const {
-        className,
-        trigger,
-        direction = 'bottom right',
-        children,
-    } = props;
+    const { className, trigger, direction = 'bottom right', children } = props;
 
     const menuClasses = [mapDirectionClass[direction]];
 
@@ -27,10 +22,7 @@ export const Popover = memo((props: PopoverProps) => {
         <HPopover
             className={classNames(cls.Popover, {}, [className, popupCls.popup])}
         >
-            <HPopover.Button
-                as="div"
-                className={popupCls.trigger}
-            >
+            <HPopover.Button as="div" className={popupCls.trigger}>
                 {trigger}
             </HPopover.Button>
 

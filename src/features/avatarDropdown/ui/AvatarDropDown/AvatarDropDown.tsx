@@ -37,11 +37,11 @@ export const AvatarDropDown = memo(() => {
             items={[
                 ...(isAdminPanelAvailable
                     ? [
-                        {
-                            content: t('Admin panel'),
-                            href: getRouteAdminPanel(),
-                        },
-                    ]
+                          {
+                              content: t('Admin panel'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
                     : []),
                 {
                     content: t('Profile'),
@@ -52,7 +52,9 @@ export const AvatarDropDown = memo(() => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
+            trigger={
+                <Avatar size={30} src={authData.avatar} fallbackInverted />
+            }
         />
     );
 });

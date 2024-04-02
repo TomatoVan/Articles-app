@@ -7,12 +7,16 @@ import { useNotifications } from '../../api/notificationAPI';
 import cls from './NotificationList.module.scss';
 
 interface NotificationListProps {
-  className?: string;
+    className?: string;
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
     const { className } = props;
-    const { isLoading, error, data: notifications } = useNotifications(null, {
+    const {
+        isLoading,
+        error,
+        data: notifications,
+    } = useNotifications(null, {
         pollingInterval: 5000,
     });
 
@@ -42,7 +46,6 @@ export const NotificationList = memo((props: NotificationListProps) => {
                     className={cls.NotificationItem}
                     notification={notification}
                 />
-
             ))}
         </VStack>
     );

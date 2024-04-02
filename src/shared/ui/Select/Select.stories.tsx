@@ -18,6 +18,5 @@ Primary.args = {
         { value: '123', content: '1 part' },
         { value: '1234', content: '2 part' },
         { value: '1235', content: '3 part' },
-    ]
-    ,
+    ],
 };

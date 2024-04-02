@@ -11,48 +11,68 @@ import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
 import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
-  className?: string;
-  comment?: Comment;
-  isLoading?: boolean;
+    className?: string;
+    comment?: Comment;
+    isLoading?: boolean;
 }
 
-export const CommentCard = memo(({ className, comment, isLoading }: CommentCardProps) => {
-    const { t } = useTranslation();
+export const CommentCard = memo(
+    ({ className, comment, isLoading }: CommentCardProps) => {
+        const { t } = useTranslation();
 
-    if (isLoading) {
+        if (isLoading) {
+            return (
+                <VStack
+                    data-testid="CommentCard.Loading"
+                    gap="8"
+                    max
+                    className={classNames(cls.CommentCard, {}, [
+                        className,
+                        cls.loading,
+                    ])}
+                >
+                    <div className={cls.header}>
+                        <Skeleton width={30} height={30} border="50%" />
+                        <Skeleton
+                            width={100}
+                            height={16}
+                            className={cls.username}
+                        />
+                    </div>
+                    <Skeleton height={50} width="100%" className={cls.text} />
+                </VStack>
+            );
+        }
+
+        if (!comment) {
+            return null;
+        }
+
         return (
             <VStack
-                data-testid="CommentCard.Loading"
-                gap="8"
+                data-testid="CommentCard.Content"
                 max
-                className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+                gap="8"
+                className={classNames(cls.CommentCard, {}, [className])}
             >
-                <div className={cls.header}>
-                    <Skeleton width={30} height={30} border="50%" />
-                    <Skeleton width={100} height={16} className={cls.username} />
-                </div>
-                <Skeleton height={50} width="100%" className={cls.text} />
-
+                <AppLink
+                    to={getRouteProfile(comment.user.id)}
+                    className={cls.header}
+                >
+                    {comment.user.avatar && (
+                        <Avatar
+                            src={comment.user.avatar}
+                            alt={comment.user.username}
+                            size={30}
+                        />
+                    )}
+                    <Text
+                        className={cls.username}
+                        title={comment.user.username}
+                    />
+                </AppLink>
+                <Text className={cls.text} text={comment.text} />
             </VStack>
         );
-    }
-
-    if (!comment) {
-        return null;
-    }
-
-    return (
-        <VStack
-            data-testid="CommentCard.Content"
-            max
-            gap="8"
-            className={classNames(cls.CommentCard, {}, [className])}
-        >
-            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
-                {comment.user.avatar && <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} />}
-                <Text className={cls.username} title={comment.user.username} />
-            </AppLink>
-            <Text className={cls.text} text={comment.text} />
-        </VStack>
-    );
-});
+    },
+);

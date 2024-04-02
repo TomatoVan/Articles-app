@@ -5,15 +5,25 @@ import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {
-  className?: string;
-  block?: ArticleImageBlock;
+    className?: string;
+    block?: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo(({ className, block }: ArticleImageBlockComponentProps) => (
-    <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-        <img alt={block?.title} src={block?.src} className={cls.img} />
-        {block?.title && (
-            <Text title={block?.title} className={cls.title} align={TextAlign.CENTER} />
-        )}
-    </div>
-));
+export const ArticleImageBlockComponent = memo(
+    ({ className, block }: ArticleImageBlockComponentProps) => (
+        <div
+            className={classNames(cls.ArticleImageBlockComponent, {}, [
+                className,
+            ])}
+        >
+            <img alt={block?.title} src={block?.src} className={cls.img} />
+            {block?.title && (
+                <Text
+                    title={block?.title}
+                    className={cls.title}
+                    align={TextAlign.CENTER}
+                />
+            )}
+        </div>
+    ),
+);

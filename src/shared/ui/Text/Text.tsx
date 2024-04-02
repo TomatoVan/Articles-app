@@ -3,31 +3,31 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error',
+    PRIMARY = 'primary',
+    INVERTED = 'inverted',
+    ERROR = 'error',
 }
 
 export enum TextAlign {
-	RIGHT = 'right',
-	LEFT = 'left',
-	CENTER = 'center'
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
 }
 export enum TextSize {
-	S = 'size_s',
-	M = 'size_m',
-	L = 'size_l',
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l',
 }
 
 interface TextProps {
-	className?: string;
-	title?:string;
-	text?:string;
-	theme?: TextTheme;
-	align?: TextAlign;
-	size?: TextSize;
+    className?: string;
+    title?: string;
+    text?: string;
+    theme?: TextTheme;
+    align?: TextAlign;
+    size?: TextSize;
 
-	'data-testid'?:string;
+    'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
@@ -49,13 +49,7 @@ export const Text = memo((props: TextProps) => {
         'data-testid': dataTestId = 'Text',
     } = props;
 
-    const additional = [
-        className,
-        cls[theme],
-        cls[align],
-        cls[size],
-
-    ];
+    const additional = [className, cls[theme], cls[align], cls[size]];
 
     const HeaderTag = mapSizeToHeaderTag[size];
 
@@ -70,10 +64,7 @@ export const Text = memo((props: TextProps) => {
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    className={cls.text}
-                    data-testid={`${dataTestId}.Paragraph`}
-                >
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
                     {text}
                 </p>
             )}

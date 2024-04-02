@@ -19,8 +19,8 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 export interface LoginFormProps {
-  className?: string;
-	onSuccess: () => void;
+    className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -49,23 +49,20 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         [dispatch],
     );
 
-    const onLoginClick = useCallback(
-        async () => {
-            const result = await dispatch(loginByUsername({ username, password }));
-            if (result.meta.requestStatus === 'fulfilled') {
-                onSuccess();
-            }
-        },
-        [onSuccess, dispatch, password, username],
-    );
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, password, username]);
 
     return (
-        <DynamicModuleLoader
-            reducers={initialReducers}
-        >
+        <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('auth_form')} />
-                {error && <Text text={t('login_error')} theme={TextTheme.ERROR} />}
+                {error && (
+                    <Text text={t('login_error')} theme={TextTheme.ERROR} />
+                )}
                 <Input
                     autofocus
                     type="text"
@@ -92,7 +89,6 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 </Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

@@ -3,7 +3,7 @@ import { getCounterValue } from '../../../model/selectors/getCounterValue/getCou
 
 describe('getCounterValue.test', () => {
     test('get counter value', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             counter: { value: 10 },
         };
 

@@ -7,9 +7,9 @@ import {
 } from 'react';
 
 interface useModalProps {
-  onClose?: () => void;
-  isOpen?: boolean;
-  animationDelay?: number;
+    onClose?: () => void;
+    isOpen?: boolean;
+    animationDelay?: number;
 }
 
 export function useModal({
@@ -19,7 +19,9 @@ export function useModal({
 }: useModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     useEffect(() => {
         if (isOpen) {
@@ -37,21 +39,24 @@ export function useModal({
         }
     }, [animationDelay, onClose]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close();
+            }
+        },
+        [close],
+    );
 
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
         }
 
-        return (() => {
+        return () => {
             clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
-        });
+        };
     }, [isOpen, onKeyDown]);
 
     return {

@@ -9,8 +9,8 @@ import {
 import { getRouteForbidden, getRouteMain } from '@/shared/const/router';
 
 interface RequireAuthProps {
-  children: JSX.Element;
-  roles?: UserRole[];
+    children: JSX.Element;
+    roles?: UserRole[];
 }
 
 export function RequireAuth({ children, roles }: RequireAuthProps) {
@@ -27,11 +27,19 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     }, [roles, userRoles]);
 
     if (!auth) {
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        );
     }
 
     if (!hasRequiredRoles) {
-        return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={getRouteForbidden()}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
     return children;

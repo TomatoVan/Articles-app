@@ -5,7 +5,7 @@ import cls from './Flex.module.scss';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
-export type FlexGap = '4' | '8'| '16'| '32';
+export type FlexGap = '4' | '8' | '16' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -29,19 +29,21 @@ const gapClasses: Record<FlexGap, string> = {
     8: cls.gap8,
     16: cls.gap16,
     32: cls.gap32,
-
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
-export interface FlexProps extends DivProps{
-	className?: string;
-	children: ReactNode;
-	justify?: FlexJustify;
-	align?: FlexAlign;
-	direction: FlexDirection;
-	gap?: FlexGap;
-	max?: boolean;
+export interface FlexProps extends DivProps {
+    className?: string;
+    children: ReactNode;
+    justify?: FlexJustify;
+    align?: FlexAlign;
+    direction: FlexDirection;
+    gap?: FlexGap;
+    max?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {

@@ -11,7 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <ProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -29,7 +31,6 @@ Primary.args = {
 export const withError = Template.bind({});
 withError.args = {
     error: 'true',
-
 };
 
 export const isLoading = Template.bind({});

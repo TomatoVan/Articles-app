@@ -15,7 +15,7 @@ import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {

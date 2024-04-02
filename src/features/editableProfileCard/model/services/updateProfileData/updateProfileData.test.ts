@@ -11,8 +11,7 @@ const data = {
     age: 20,
     country: Country.Armenia,
     currency: Currency.EUR,
-    avatar:
-    'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     city: 'yaroslavl',
     id: '1',
 };
@@ -59,6 +58,8 @@ describe('updateProfileData.test', () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+        expect(result.payload).toEqual([
+            ValidateProfileError.INCORRECT_USER_DATA,
+        ]);
     });
 });

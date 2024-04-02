@@ -21,8 +21,8 @@ import {
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
-  className?: string;
-  onSendComment: (text: string) => void;
+    className?: string;
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -37,17 +37,17 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
-
-    const onSendHandler = useCallback(
-        () => {
-            onSendComment(text || '');
-            onCommentTextChange('');
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
         },
-        [onCommentTextChange, onSendComment, text],
+        [dispatch],
     );
+
+    const onSendHandler = useCallback(() => {
+        onSendComment(text || '');
+        onCommentTextChange('');
+    }, [onCommentTextChange, onSendComment, text]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>

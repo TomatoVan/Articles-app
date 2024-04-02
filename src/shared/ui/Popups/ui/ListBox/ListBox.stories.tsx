@@ -15,7 +15,9 @@ export default {
     decorators: [(story) => <div style={{ padding: 150 }}>{story()}</div>],
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 const items = [
     { value: Country.Armenia, content: Country.Armenia },

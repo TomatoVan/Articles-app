@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-  className?: string;
+    className?: string;
 }
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const { className } = props;

@@ -7,19 +7,22 @@ import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fet
 import { ArticleSortField, ArticleType } from '../../../../../entities/Article';
 
 export const initArticlesPage = createAsyncThunk<
-  void,
-  URLSearchParams,
-  ThunkConfig<string>
+    void,
+    URLSearchParams,
+    ThunkConfig<string>
 >('articlesPage/initArticlesPage', async (searchParams, thunkAPI) => {
     const { getState, dispatch } = thunkAPI;
 
     const inited = getArticlesPageInited(getState());
 
     if (!inited) {
-        const orderFromUrl = searchParams.get('order') as SortOrder ?? 'asc';
-        const sortFromUrl = searchParams.get('sort') as ArticleSortField ?? ArticleSortField.CREATED;
+        const orderFromUrl = (searchParams.get('order') as SortOrder) ?? 'asc';
+        const sortFromUrl =
+            (searchParams.get('sort') as ArticleSortField) ??
+            ArticleSortField.CREATED;
         const searchFromUrl = searchParams.get('search') ?? '';
-        const typeFromUrl = searchParams.get('type') as ArticleType ?? ArticleType.ALL;
+        const typeFromUrl =
+            (searchParams.get('type') as ArticleType) ?? ArticleType.ALL;
 
         dispatch(articlesPageActions.setOrder(orderFromUrl));
         dispatch(articlesPageActions.setSort(sortFromUrl));
@@ -28,8 +31,6 @@ export const initArticlesPage = createAsyncThunk<
 
         dispatch(articlesPageActions.initState());
 
-        dispatch(
-            fetchArticlesList({}),
-        );
+        dispatch(fetchArticlesList({}));
     }
 });
