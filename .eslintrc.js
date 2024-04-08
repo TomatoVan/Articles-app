@@ -53,6 +53,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'react/jsx-no-useless-fragment': 'off',
+        'react/no-unstable-nested-components': 'warn',
         'paths-fixes/path-checker': ['error', { alias: '@' }],
         'paths-fixes/layer-imports': [
             'error',
