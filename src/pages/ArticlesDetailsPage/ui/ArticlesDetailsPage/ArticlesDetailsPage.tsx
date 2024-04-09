@@ -14,7 +14,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetails } from '../../../../entities/Article';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 
 const reducers: ReducersList = {
@@ -29,11 +29,12 @@ const ArticlesDetailsPage = (props: any) => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Article ratings coming soon!')}</Card>,
-    });
+    // usage example for func
+    // const articleRatingCard = toggleFeatures({
+    // 	name: 'isArticleRatingEnabled',
+    // 	on: () => todo1(),
+    // 	off: () => todo2(),
+    // });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -41,7 +42,11 @@ const ArticlesDetailsPage = (props: any) => {
                 <VStack gap="16" max>
                     <ArticlesDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {articleRatingCard}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Article ratings coming soon!')}</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
