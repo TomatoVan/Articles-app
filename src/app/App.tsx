@@ -8,9 +8,9 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { useTheme } from '@/shared/lib/hook/useTheme/useTheme';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/features/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { PageLoader } from '@/features/PageLoader';
 
 function App() {
     const { theme } = useTheme();

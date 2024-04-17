@@ -13,17 +13,33 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         paths,
     } = options;
 
-    const svgLoader = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    };
+	const svgLoader = {
+		test: /\.svg$/,
+		use: [{
+			loader: '@svgr/webpack',
+			options: {
+				icon: true,
+				svgoConfig: {
+					plugins: [
+						{
+							name: 'convertColors',
+							params: {
+								currentColor: true,
+							}
+						}
+					]
+				}
+			}
+		}],
+	};
 
-    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+
+	const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
     const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const cssLoader = buildCssLoader(isDev);
 
-    // Если не используем тайпскрипт - нужен babel-loader
+    // if not using ts -  babel-loader needed
     // const typescriptLoader = {
     //     test: /\.tsx?$/,
     //     use: 'ts-loader',
