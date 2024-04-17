@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
-import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
 
@@ -15,7 +16,6 @@ import { ArticleDetails } from '../../../../entities/Article';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,

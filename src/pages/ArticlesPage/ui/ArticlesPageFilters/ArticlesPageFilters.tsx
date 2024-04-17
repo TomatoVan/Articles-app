@@ -1,11 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Card } from '@/shared/ui/deprecated/Card';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
-import { Input } from '@/shared/ui/Input';
-import { Card } from '@/shared/ui/Card';
 import { SortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hook/useDebounce/useDebounce';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
@@ -21,6 +20,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPageFilters.module.scss';
 import { ArticleSortSelector } from '@/features/ArtilcleSortSelector';
+import { Input } from '@/shared/ui/deprecated/Input';
 
 interface ArticlesPageFiltersProps {
     className?: string;

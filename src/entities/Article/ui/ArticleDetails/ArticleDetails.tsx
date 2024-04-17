@@ -1,19 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { Icon } from '@/shared/ui/Icon';
-import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -27,6 +23,16 @@ import {
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import {
+    TextAlign,
+    TextSize,
+    TextTheme,
+    Text,
+} from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 
 interface ArticleDetailsProps {
     className?: string;
