@@ -42,10 +42,6 @@ export const AppImage = memo((props: AppImageProps) => {
     if (hasError && errorFallback) {
         return errorFallback;
     }
-    /**
-     * Устарел, используем новые компоненты из папки redesigned
-     * @deprecated
-     */
 
     return <img src={src} alt={alt} className={className} {...otherProps} />;
 });

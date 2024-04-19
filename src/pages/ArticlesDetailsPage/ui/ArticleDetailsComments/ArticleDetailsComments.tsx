@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
@@ -13,6 +12,7 @@ import { addCommentForArticle } from '../../model/services/addCommetForArticle/a
 import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { Loader } from '@/shared/ui/deprecated/Loader';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsCommentsProps {
     className?: string;

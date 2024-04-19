@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -15,6 +14,7 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 interface ArticleListItemProps {
     className?: string;

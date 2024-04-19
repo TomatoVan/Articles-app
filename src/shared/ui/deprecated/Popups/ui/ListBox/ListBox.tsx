@@ -6,7 +6,7 @@ import popupCls from '../../styles/popup.module.scss';
 import { mapDirectionClass } from '../../styles/consts';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 
 export interface ListBoxItems {
     value: string;

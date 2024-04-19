@@ -69,10 +69,7 @@ export const Flex = (props: FlexProps) => {
     const mods: Mods = {
         [cls.max]: max,
     };
-    /**
-     * Устарел, используем новые компоненты из папки redesigned
-     * @deprecated
-     */
+
     return (
         <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
             {children}
