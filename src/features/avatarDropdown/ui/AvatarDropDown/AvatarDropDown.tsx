@@ -1,8 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
 import {
     getUserAuthData,
@@ -11,7 +9,6 @@ import {
     userActions,
 } from '../../../../entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
@@ -53,28 +50,10 @@ export const AvatarDropDown = memo(() => {
         },
     ];
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <Dropdown
-                    direction="bottom left"
-                    items={items}
-                    trigger={<Avatar size={40} src={authData.avatar} />}
-                />
-            }
-            off={
-                <DropdownDeprecated
-                    direction="bottom left"
-                    items={items}
-                    trigger={
-                        <AvatarDeprecated
-                            size={30}
-                            src={authData.avatar}
-                            fallbackInverted
-                        />
-                    }
-                />
-            }
+        <Dropdown
+            direction="bottom left"
+            items={items}
+            trigger={<Avatar size={40} src={authData.avatar} />}
         />
     );
 });
