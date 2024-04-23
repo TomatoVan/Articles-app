@@ -1,4 +1,4 @@
-import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -13,7 +13,6 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hook/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/testProps';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -34,13 +33,10 @@ export const Page = memo((props: PageProps) => {
         getScrollRestorationByPath(state, pathname),
     );
 
+    // wrapperRef undefined because scroll on window element (undefined for default settings)
     useInfiniteScroll({
         triggerRef,
-        wrapperRef: toggleFeatures({
-            name: 'isAppRedesigned',
-            on: () => undefined,
-            off: () => wrapperRef,
-        }),
+        wrapperRef: undefined,
         callback: onScrollEnd,
     });
 

@@ -8,13 +8,11 @@ import {
 import { useInitialEffect } from '@/shared/lib/hook/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
 import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { Page } from '@/widgets/Page';
 import { ArticlePageGreeting } from '@/features/articlePageGreeting';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import cls from './ArticlesPage.module.scss';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
@@ -42,35 +40,17 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     });
 
     const content = (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <StickyContentLayout
-                    left={<ViewSelectorContainer />}
-                    right={<FiltersContainer />}
-                    content={
-                        <Page
-                            data-testid="ArticlesPage"
-                            onScrollEnd={onLoadNextPart}
-                            className={classNames(
-                                cls.ArticlesPageRedesigned,
-                                {},
-                                [className],
-                            )}
-                        >
-                            <ArticleInfiniteList />
-                            <ArticlePageGreeting />
-                        </Page>
-                    }
-                />
-            }
-            off={
+        <StickyContentLayout
+            left={<ViewSelectorContainer />}
+            right={<FiltersContainer />}
+            content={
                 <Page
                     data-testid="ArticlesPage"
                     onScrollEnd={onLoadNextPart}
-                    className={classNames('', {}, [className])}
+                    className={classNames(cls.ArticlesPageRedesigned, {}, [
+                        className,
+                    ])}
                 >
-                    <ArticlesPageFilters />
                     <ArticleInfiniteList />
                     <ArticlePageGreeting />
                 </Page>
