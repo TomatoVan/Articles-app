@@ -48,7 +48,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
     return (
         <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
+            {label && <span>{`${label}:`}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
@@ -62,7 +62,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 <HListBox.Button className={cls.trigger}>
                     <Button
                         variant="filled"
-                        disabled={readonly}
+                        isDisabled={readonly}
                         addonRight={<Icon Svg={ArrowIcon} />}
                     >
                         {selectedItem?.content ?? defaultValue}

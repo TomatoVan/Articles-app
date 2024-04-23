@@ -74,8 +74,9 @@
     font: var(--font-xl-redesigned);
 }
 
-.disabled {
+.isDisabled {
     opacity: 0.5;
+    pointer-events: none;
 }
 
 .fullWidth {
