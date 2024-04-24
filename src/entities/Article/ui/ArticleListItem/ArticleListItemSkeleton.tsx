@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton = memo(
         if (view === ArticleView.BIG) {
             return (
                 <div
-                    className={classNames(cls.ArticleListItem, {}, [
+                    className={classNames(cls.ArticleListItemRedesigned, {}, [
                         className,
                         cls[view],
                     ])}
@@ -41,7 +41,7 @@ export const ArticleListItemSkeleton = memo(
                             height={24}
                             className={cls.title}
                         />
-                        <Skeleton height={200} className={cls.img} />
+                        <Skeleton height={400} className={cls.img} />
                         <div className={cls.footer}>
                             <Skeleton height={36} width={200} />
                         </div>

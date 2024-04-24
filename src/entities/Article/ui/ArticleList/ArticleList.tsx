@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/consts';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;
@@ -45,14 +46,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     cls[view],
                 ])}
             >
-                <Text size={TextSize.L} title={t('Articles not found')} />
+                <Text size="l" title={t('Articles not found')} />
             </div>
         );
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        <HStack
+            wrap="wrap"
+            gap="16"
+            className={classNames(cls.ArticleListRedesigned, {}, [className])}
             data-testid="ArticleList"
         >
             {articles.map((item) => (
@@ -65,6 +68,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 />
             ))}
             {isLoading && getSkeletons(view)}
-        </div>
+        </HStack>
     );
 });
