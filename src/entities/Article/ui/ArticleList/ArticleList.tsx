@@ -45,7 +45,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     cls[view],
                 ])}
             >
-                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+                <Text size={TextSize.L} title={t('Articles not found')} />
             </div>
         );
     }

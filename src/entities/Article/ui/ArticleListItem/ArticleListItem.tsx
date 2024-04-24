@@ -1,20 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListItemProps {
     className?: string;
@@ -29,10 +29,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
-        <>
+        <HStack gap="8">
             <Text text={String(article.views)} className={cls.views} />
             <Icon Svg={EyeIcon} />
-        </>
+        </HStack>
     );
 
     if (view === ArticleView.BIG) {
@@ -41,24 +41,23 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div
+            <Card
+                padding="24"
+                max
                 data-testid="ArticleListItem"
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
                     cls[view],
                 ])}
             >
-                <Card>
-                    <div className={cls.header}>
-                        <Avatar size={30} src={article.user.avatar} />
-                        <Text
-                            text={article.user.username}
-                            className={cls.username}
-                        />
-                        <Text text={article.createdAt} className={cls.date} />
-                    </div>
-                    <Text text={article.title} className={cls.title} />
-                    {types}
+                <VStack gap="16">
+                    <HStack gap="8">
+                        <Avatar size={32} src={article.user.avatar} />
+                        <Text bold text={article.user.username} />
+                        <Text text={article.createdAt} />
+                    </HStack>
+                    <Text text={article.title} bold />
+                    <Text text={article.subtitle} bold size="s" />
                     <AppImage
                         src={article.img}
                         className={cls.img}
@@ -66,25 +65,24 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         fallback={<Skeleton width="100%" height={250} />}
                         errorFallback={<Skeleton width="100%" height={250} />}
                     />
-                    {textBlock && (
-                        <ArticleTextBlockComponent
-                            block={textBlock}
+                    {textBlock?.paragraphs && (
+                        <Text
                             className={cls.textBlock}
+                            text={textBlock.paragraphs.slice(0, 2).join(' ')}
                         />
                     )}
-                    <div className={cls.footer}>
+
+                    <HStack max justify="between">
                         <AppLink
                             target={target}
                             to={getRouteArticleDetails(article.id)}
                         >
-                            <Button theme={ButtonTheme.OUTLINE}>
-                                {t('Read more...')}
-                            </Button>
+                            <Button>{t('Read more...')}</Button>
                         </AppLink>
                         {views}
-                    </div>
-                </Card>
-            </div>
+                    </HStack>
+                </VStack>
+            </Card>
         );
     }
 
