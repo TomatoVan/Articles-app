@@ -4,9 +4,9 @@ import {
     AnimationProvider,
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import { useTheme } from '@/shared/lib/hook/useTheme/useTheme';
 
 interface DrawerProps {
@@ -79,7 +79,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Drawer, {}, [
                     className,
@@ -103,11 +103,6 @@ export const DrawerContent = memo((props: DrawerProps) => {
         </Portal>
     );
 });
-
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 
 const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();

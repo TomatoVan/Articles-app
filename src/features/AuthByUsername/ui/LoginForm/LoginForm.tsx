@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
@@ -16,7 +16,8 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import cls from './LoginForm.module.scss';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 export interface LoginFormProps {
     className?: string;
@@ -59,34 +60,33 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('auth_form')} />
-                {error && (
-                    <Text text={t('login_error')} theme={TextTheme.ERROR} />
-                )}
-                <Input
-                    autofocus
-                    type="text"
-                    className={cls.input}
-                    placeholder={t('auth_username')}
-                    onChange={onChangeUsername}
-                    value={username}
-                />
-                <Input
-                    type="text"
-                    className={cls.input}
-                    placeholder={t('auth_password')}
-                    onChange={onChangePassword}
-                    value={password}
-                />
-
-                <Button
-                    onClick={onLoginClick}
-                    theme={ButtonTheme.OUTLINE}
-                    className={cls.loginBtn}
-                    isDisabled={isLoading}
-                >
-                    {t('login')}
-                </Button>
+                <VStack gap="8">
+                    <Text title={t('auth_form')} />
+                    {error && <Text text={t('login_error')} variant="error" />}
+                    <Input
+                        autofocus
+                        type="text"
+                        className={cls.input}
+                        placeholder={t('auth_username')}
+                        onChange={onChangeUsername}
+                        value={username}
+                    />
+                    <Input
+                        type="text"
+                        className={cls.input}
+                        placeholder={t('auth_password')}
+                        onChange={onChangePassword}
+                        value={password}
+                    />
+                    <Button
+                        onClick={onLoginClick}
+                        variant="outline"
+                        className={cls.loginBtn}
+                        isDisabled={isLoading}
+                    >
+                        {t('login')}
+                    </Button>
+                </VStack>
             </div>
         </DynamicModuleLoader>
     );

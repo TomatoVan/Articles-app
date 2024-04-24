@@ -25,7 +25,7 @@ function App() {
     }
 
     return (
-        <div className={classNames('app_redesigned', {}, [theme])}>
+        <div id="app" className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <MainLayout
                     header={<Navbar />}

@@ -5,11 +5,11 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { Modal } from '@/shared/ui/deprecated/Modal';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
 interface RatingCardProps {
     className?: string;
@@ -65,7 +65,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 data-testid="RatingCard.Input"
                 value={feedback}
                 onChange={setFeedback}
-                placeholder={t('Ваш отзыв')}
+                placeholder={t('Your review')}
             />
         </>
     );
@@ -115,7 +115,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                             onClick={acceptHandle}
                             size={ButtonSize.L}
                         >
-                            {t('Отправить')}
+                            {t('Send')}
                         </Button>
                     </VStack>
                 </Drawer>

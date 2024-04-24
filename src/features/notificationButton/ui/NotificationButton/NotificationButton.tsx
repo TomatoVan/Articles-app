@@ -1,10 +1,10 @@
 import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { NotificationList } from '../../../../entities/Notification';
 import cls from './NotificationButton.module.scss';
-import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 
@@ -32,9 +32,9 @@ export const NotificationButton = memo(() => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <DrawerDeprecated isOpen={isOpen} onClose={onCloseDrawer}>
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
                     <NotificationList />
-                </DrawerDeprecated>
+                </Drawer>
             </MobileView>
         </div>
     );

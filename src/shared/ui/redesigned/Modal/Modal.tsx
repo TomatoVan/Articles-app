@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hook/useModal/useModal';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 import { useTheme } from '@/shared/lib/hook/useTheme/useTheme';
 
@@ -35,12 +35,9 @@ export const Modal = (props: ModalProps) => {
     if (lazy && !isMounted) {
         return null;
     }
-    /**
-     * Устарел, используем новые компоненты из папки redesigned
-     * @deprecated
-     */
+
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <Overlay onClick={close} />
                 <div className={cls.content}>{children}</div>
