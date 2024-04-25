@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
@@ -41,7 +41,7 @@ export const ArticleDetailsComments = memo(
 
         return (
             <VStack gap="16" max className={classNames('', {}, [className])}>
-                <Text size={TextSize.L} title={t('Comments')} />
+                <Text size="l" title={t('Comments')} />
                 <Suspense fallback={<Loader />}>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>

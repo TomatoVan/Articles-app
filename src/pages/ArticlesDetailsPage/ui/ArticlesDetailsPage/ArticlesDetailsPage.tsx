@@ -7,7 +7,6 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoared/DynamicModuleLoared';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
-
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';

@@ -47,7 +47,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     let content;
     if (isLoading) {
         content = (
-            <>
+            <VStack gap="16" max>
                 <Skeleton
                     className={cls.avatar}
                     width={200}
@@ -58,7 +58,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
-            </>
+            </VStack>
         );
     } else if (error) {
         content = (

@@ -1,8 +1,8 @@
 import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
-import { Icon } from '../Icon/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
+import { Icon } from '../Icon';
 
 interface StarRatingProps {
     className?: string;
@@ -38,10 +38,7 @@ export const StarRating = memo((props: StarRatingProps) => {
             setIsSelected(true);
         }
     };
-    /**
-     * Устарел, используем новые компоненты из папки redesigned
-     * @deprecated
-     */
+
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
@@ -64,6 +61,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onClick={() => onClick(starNumber)}
                     data-testid={`StarRating.${starNumber}`}
                     data-selected={currentStarsCount >= starNumber}
+                    clickable={!isSelected}
                 />
             ))}
         </div>
