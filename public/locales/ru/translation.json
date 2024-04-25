@@ -19,5 +19,13 @@
     "auth_password": "Введите пароль",
     "login_error": "Вы ввели неверный логин или пароль",
     "exit": "Выйти",
-    "main_page": "Главная страница"
+    "main_page": "Главная страница",
+    "Main page": "Главная страница",
+    "About site": "О сайте",
+    "Profile": "Профиль",
+    "Articles": "Статьи",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотров",
+  "{{count}} views_many": "{{count}} просмотров"
 }

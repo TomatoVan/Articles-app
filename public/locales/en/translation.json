@@ -19,5 +19,8 @@
     "auth_password": "Enter password",
     "login_error": "An incorrect username or password",
     "exit": "Exit",
-    "main_page": "Main page"
+    "main_page": "Main page",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

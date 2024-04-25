@@ -1,8 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Card } from '@/shared/ui/deprecated/Card';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -10,12 +8,12 @@ import {
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
 
-import { ArticlesDetailsPageHeader } from '../../ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
-import { ArticleDetails } from '../../../../entities/Article';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -23,34 +21,24 @@ const reducers: ReducersList = {
 
 const ArticlesDetailsPage = (props: any) => {
     const { id } = useParams<{ id: string }>();
-    const { t } = useTranslation();
-
     if (!id) {
         return null;
     }
-
-    // usage example for func
-    // const articleRatingCard = toggleFeatures({
-    // 	name: 'isArticleRatingEnabled',
-    // 	on: () => todo1(),
-    // 	off: () => todo2(),
-    // });
-
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page>
-                <VStack gap="16" max>
-                    <ArticlesDetailsPageHeader />
-                    <ArticleDetails id={id} />
-                    <ToggleFeatures
-                        feature="isArticleRatingEnabled"
-                        on={<ArticleRating articleId={id} />}
-                        off={<Card>{t('Article ratings coming soon!')}</Card>}
-                    />
-                    <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
-                </VStack>
-            </Page>
+            <StickyContentLayout
+                content={
+                    <Page>
+                        <VStack gap="16" max>
+                            <DetailsContainer />
+                            <ArticleRating articleId={id} />
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </VStack>
+                    </Page>
+                }
+                right={<AdditionalInfoContainer />}
+            />
         </DynamicModuleLoader>
     );
 };
