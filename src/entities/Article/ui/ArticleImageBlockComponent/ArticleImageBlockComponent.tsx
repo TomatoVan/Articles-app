@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
-import { TextAlign, Text } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleImageBlockComponentProps {
     className?: string;
@@ -21,7 +21,7 @@ export const ArticleImageBlockComponent = memo(
                 <Text
                     title={block?.title}
                     className={cls.title}
-                    align={TextAlign.CENTER}
+                    align="center"
                 />
             )}
         </div>
