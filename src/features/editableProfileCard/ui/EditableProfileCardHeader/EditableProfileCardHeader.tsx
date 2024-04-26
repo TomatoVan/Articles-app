@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '../../../../entities/User';
@@ -11,6 +11,7 @@ import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -40,43 +41,44 @@ export const EditableProfileCardHeader = memo(
         }, [dispatch]);
 
         return (
-            <HStack
-                max
-                justify="between"
-                className={classNames('', {}, [className])}
-            >
-                <Text title={t('Profile')} />
-                {canEdit && (
-                    <>
-                        {readonly ? (
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
-                                data-testid="EditableProfileCardHeader.EditButton"
-                            >
-                                {t('Edit')}
-                            </Button>
-                        ) : (
-                            <HStack gap="8">
+            <Card border="partial" padding="24" max>
+                <HStack
+                    max
+                    justify="between"
+                    className={classNames('', {}, [className])}
+                >
+                    <Text title={t('Profile')} />
+                    {canEdit && (
+                        <>
+                            {readonly ? (
                                 <Button
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                    data-testid="EditableProfileCardHeader.CancelButton"
+                                    onClick={onEdit}
+                                    data-testid="EditableProfileCardHeader.EditButton"
                                 >
-                                    {t('Cancel')}
+                                    {t('Edit')}
                                 </Button>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onSave}
-                                    data-testid="EditableProfileCardHeader.SaveButton"
-                                >
-                                    {t('Save')}
-                                </Button>
-                            </HStack>
-                        )}
-                    </>
-                )}
-            </HStack>
+                            ) : (
+                                <HStack gap="8">
+                                    <Button
+                                        color="error"
+                                        onClick={onCancelEdit}
+                                        data-testid="EditableProfileCardHeader.CancelButton"
+                                    >
+                                        {t('Cancel')}
+                                    </Button>
+                                    <Button
+                                        color="success"
+                                        onClick={onSave}
+                                        data-testid="EditableProfileCardHeader.SaveButton"
+                                    >
+                                        {t('Save')}
+                                    </Button>
+                                </HStack>
+                            )}
+                        </>
+                    )}
+                </HStack>
+            </Card>
         );
     },
 );

@@ -49,7 +49,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <Card padding="24" max>
+            <Card border="partial" padding="24" max>
                 <VStack gap="32">
                     <HStack max justify="center">
                         <Skeleton border="100%" width={128} height={128} />
@@ -89,6 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     return (
         <Card
+            border="partial"
             padding="24"
             max
             className={classNames(cls.ProfileCardRedesigned, {}, [className])}

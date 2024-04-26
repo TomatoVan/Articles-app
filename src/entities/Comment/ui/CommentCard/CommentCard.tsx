@@ -47,7 +47,7 @@ export const CommentCard = memo(
         }
 
         return (
-            <Card padding="24" max>
+            <Card border="partial" padding="24" max>
                 <VStack
                     data-testid="CommentCard.Content"
                     max

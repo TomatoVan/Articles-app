@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { LoginModal } from '@/features/AuthByUsername';
 import { NotificationButton } from '@/features/notificationButton';
@@ -29,9 +29,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <header
-                className={classNames(cls.NavbarRedesigned, {}, [className])}
-            >
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <HStack gap="16" className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropDown />
@@ -42,11 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                className={cls.links}
-                onClick={onShowModal}
-            >
+            <Button variant="clear" className={cls.links} onClick={onShowModal}>
                 {t('login')}
             </Button>
             {isAuthModal && (
