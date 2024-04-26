@@ -25,6 +25,11 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         }
     }, [defaultTheme, isThemeInited]);
 
+    // for scroll theme changes
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
     const defaultProps = useMemo(
         () => ({
             theme,

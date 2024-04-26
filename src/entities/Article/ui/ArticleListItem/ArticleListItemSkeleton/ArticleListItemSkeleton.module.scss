@@ -92,9 +92,6 @@
 
     .title {
         margin-top: 8px;
-        height: 26px;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .title p {
@@ -108,5 +105,12 @@
 .ArticleListItemRedesigned {
     &.BIG {
         width: 100%;
+    }
+
+    &.SMALL {
+        .card {
+            height: 350px;
+            width: 240px;
+        }
     }
 }
