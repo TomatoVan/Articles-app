@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticlesDetailsData } from '../../../../entities/Article';
@@ -37,13 +37,9 @@ export const ArticlesDetailsPageHeader = memo(
                 max
                 className={classNames('', {}, [className])}
             >
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Back to list')}
-                </Button>
+                <Button onClick={onBackToList}>{t('Back to list')}</Button>
                 {canEdit && (
-                    <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
-                        {t('Edit')}
-                    </Button>
+                    <Button onClick={onEditArticle}>{t('Edit')}</Button>
                 )}
             </HStack>
         );

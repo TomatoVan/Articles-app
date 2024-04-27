@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
@@ -9,6 +8,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { getRouteProfile } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 interface CommentCardProps {
     className?: string;

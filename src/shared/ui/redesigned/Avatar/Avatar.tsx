@@ -4,7 +4,7 @@ import cls from './Avatar.module.scss';
 import { AppImage } from '../../redesigned/AppImage';
 import UserIcon from '../../../assets/icons/user-filled.svg';
 import { Icon } from '../Icon';
-import { Skeleton } from '../../deprecated/Skeleton';
+import { Skeleton } from '../Skeleton';
 
 export interface AvatarProps {
     className?: string;
