@@ -11,11 +11,14 @@ interface IconBaseProps extends SvgProps {
 
 interface NonClickableIconProps extends IconBaseProps {
     clickable?: false;
+    'data-testid'?: string;
 }
 
 interface ClickableIconProps extends IconBaseProps {
     clickable: true;
     onClick: () => void;
+
+    'data-testid'?: string;
 }
 
 type IconProps = NonClickableIconProps | ClickableIconProps;
@@ -27,6 +30,7 @@ export const Icon = memo((props: IconProps) => {
         width = 32,
         height = 32,
         clickable,
+        'data-testid': dataTestId = 'Icon',
         ...otherProps
     } = props;
 
@@ -35,6 +39,7 @@ export const Icon = memo((props: IconProps) => {
             className={classNames(cls.Icon, {}, [className])}
             width={width}
             height={height}
+            data-testid={dataTestId}
             {...otherProps}
             // @ts-ignore
             onClick={undefined}
@@ -48,6 +53,7 @@ export const Icon = memo((props: IconProps) => {
                 className={cls.button}
                 onClick={props.onClick}
                 style={{ height, width }}
+                data-testid={dataTestId}
             >
                 {icon}
             </button>
