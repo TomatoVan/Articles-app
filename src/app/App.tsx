@@ -10,11 +10,13 @@ import { useTheme } from '@/shared/lib/hook/useTheme/useTheme';
 import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -35,6 +37,7 @@ function App() {
                     header={<Navbar />}
                     content={<AppRouter />}
                     sidebar={<Sidebar />}
+                    toolbar={toolbar}
                 />
             </Suspense>
         </div>
