@@ -49,6 +49,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                         className={classNames('', {
                             [cls.notSelected]: viewType.view !== view,
                         })}
+                        key={viewType.view}
                     />
                 ))}
             </HStack>
